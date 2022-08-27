@@ -1,3 +1,4 @@
+from typing import List
 import requests
 import json
 import pandas as pd
@@ -24,3 +25,13 @@ def read_data(field: str)->pd.DataFrame:
     else:
         datapd = pd.DataFrame()
     return datapd
+
+def get_all_usernames() -> List:
+    data = json.loads(requests.get(URL_USERS).text)
+    datapd = pd.json_normalize(data)
+
+    return datapd.username.unique()
+
+
+if __name__ == '__main__':
+    print(get_all_usernames())
