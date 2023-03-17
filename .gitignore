@@ -1,6 +1,3 @@
 __pycache__
 .vscode
 .venv
-poetry.lock
-pyproject.toml
-*.png
